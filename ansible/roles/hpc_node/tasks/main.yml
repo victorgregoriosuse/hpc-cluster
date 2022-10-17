@@ -1,4 +1,0 @@
-- name: Install HPC RPMs
-  zypper:
-    name: "{{ hpc_rpms }}"
-    state: present
