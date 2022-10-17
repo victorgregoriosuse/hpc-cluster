@@ -1,0 +1,10 @@
+# See the exports(5) manpage for a description of the syntax of this file.
+# This file contains a list of all directories that are to be exported to 
+# other computers via NFS (Network File System).
+# This file used by rpc.nfsd and rpc.mountd. See their manpages for details
+# on how make changes in this file effective.
+#
+# {{ ansible_managed }}
+
+/export		172.16.250.159/32(rw,fsid=0,async,no_subtree_check,crossmnt)
+/export/data	172.16.250.159/32(rw,no_subtree_check,async)

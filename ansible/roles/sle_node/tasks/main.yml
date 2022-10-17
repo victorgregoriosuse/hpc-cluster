@@ -1,0 +1,4 @@
+- name: Install common sysadmin packages
+  zypper:
+    name: "{{ common_rpms }}"
+    state: present

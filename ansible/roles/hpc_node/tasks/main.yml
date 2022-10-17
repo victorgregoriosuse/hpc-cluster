@@ -1,0 +1,4 @@
+- name: Install Spack
+  zypper:
+    name: spack
+    state: present

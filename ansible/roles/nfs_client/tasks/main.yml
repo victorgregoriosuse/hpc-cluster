@@ -1,0 +1,12 @@
+
+- name: Install NFS client
+  zypper:
+    name: nfs-client
+    state: present
+
+- name: Add /etc/fstab entry
+  lineinfile:
+    path: /etc/fstab
+    state: present
+    line: '172.16.250.164:/data    /data    nfs    defaults,nofail,vers=4    0 0'
+

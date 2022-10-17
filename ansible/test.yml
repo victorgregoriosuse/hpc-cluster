@@ -1,0 +1,20 @@
+- name: Deploy Cluster
+  hosts:
+    - headnodes
+    - computenodes
+  roles:
+    - sle_node
+
+# Needs cleanup on register and reload for exports change
+#- name: Setup NFS Server
+#  hosts:
+#    - headnodes
+#  roles:
+#    - nfs_server
+
+# Needs cleanup on hard coded ips
+#- name: Setup NFS Client
+#  hosts:
+#    - computenodes
+#  roles:
+#    - nfs_client
