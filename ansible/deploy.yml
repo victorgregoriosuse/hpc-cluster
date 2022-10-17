@@ -6,16 +6,16 @@
     - sle_node
     - ntp_client
 
-#- name: Deploy Headnode
-#  hosts:
-#    - headnode
-#  roles:
-#    - head_node
-#    - nfs_server
+- name: Deploy Headnode
+  hosts:
+    - headnode
+  roles:
+    - head_node
+    - nfs_server
 
-#- name: Deploy Computenodes
-#  hosts:
-#    - computenodes
-#  roles:
-#    - nfs_client
+- name: Deploy Computenodes
+  hosts:
+    - computenodes
+  roles:
+    - nfs_client
 

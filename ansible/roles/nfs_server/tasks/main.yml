@@ -13,12 +13,12 @@
     mode: '0644'
   register: exportschanged
 
-  #- name: Reload NFS config
-  #service: 
-  #  name: nfsserver
-  #  enabled: yes
-  #  state: restart
-  #  when: exportschanged|changed
+- name: Reload NFS config
+  service: 
+    name: nfsserver
+    enabled: yes
+    state: restart
+  when: exportschanged.changed
 
 - name: Start and Enable NFS
   service: 
