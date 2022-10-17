@@ -1,15 +1,21 @@
-- name: Deploy Headnode
+- name: Deploy Cluster
   hosts:
     - headnode
-  roles:
-    - sle_node
-    - head_node
-    #- nfs_server
-
-- name: Deploy Computenodes
-  hosts:
     - computenodes
   roles:
     - sle_node
-    #- nfs_client
+    - ntp_client
+
+#- name: Deploy Headnode
+#  hosts:
+#    - headnode
+#  roles:
+#    - head_node
+#    - nfs_server
+
+#- name: Deploy Computenodes
+#  hosts:
+#    - computenodes
+#  roles:
+#    - nfs_client
 

@@ -1,0 +1,25 @@
+- name: set timezone to UTC
+  timezone:
+    name: UTC
+  register: tzchanged
+  tags: ntp
+
+- name: install chrony
+  zypper:
+    name: "{{ ntp_rpms }}"
+    state: present
+  tags: ntp
+
+- name: start and enable ntp via chrony
+  service: 
+    name: chronyd
+    enabled: yes
+    state: started
+  tags: ntp
+
+- name: restart chrony if tz changed
+  service: 
+    name: chronyd
+    state: restarted
+  when: tzchanged.changed
+  tags: ntp

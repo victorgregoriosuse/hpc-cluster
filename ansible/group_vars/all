@@ -3,9 +3,11 @@ common_rpms:
   - tmux
   - vim
   - bind-utils
-
-hpc_rpms:
   - spack
 
 headnode_rpms:
   - man
+
+ntp_rpms:
+  - chrony
+  - chrony-pool-suse
