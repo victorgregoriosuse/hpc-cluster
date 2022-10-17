@@ -1,6 +1,6 @@
 - name: Deploy Headnode
   hosts:
-    - headnodes
+    - headnode
   roles:
     - sle_node
     - head_node
