@@ -1,4 +1,4 @@
-- name: Install Spack
+- name: Install HPC RPMs
   zypper:
-    name: spack
+    name: "{{ hpc_rpms }}"
     state: present

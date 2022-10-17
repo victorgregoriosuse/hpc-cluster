@@ -2,3 +2,10 @@ common_rpms:
   - screen
   - tmux
   - vim
+  - bind-utils
+
+hpc_rpms:
+  - spack
+
+headnode_rpms:
+  - man

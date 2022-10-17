@@ -1,0 +1,4 @@
+- name: Install Headnode RPMs
+  zypper:
+    name: "{{ headnode_rpms }}"
+    state: present
