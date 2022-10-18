@@ -1,4 +1,4 @@
-- name: Deploy Cluster
+- name: deploy common cluster settings
   hosts:
     - headnode
     - computenodes
@@ -6,16 +6,17 @@
     - sle_node
     - ntp_client
 
-- name: Deploy Headnode
+- name: deploy head node
   hosts:
     - headnode
   roles:
     - head_node
-    - nfs_server
+    - slurm_mgr
 
-- name: Deploy Computenodes
+- name: deploy compute nodes
   hosts:
     - computenodes
   roles:
-    - nfs_client
+    - compute_node
+    - slurm_node
 

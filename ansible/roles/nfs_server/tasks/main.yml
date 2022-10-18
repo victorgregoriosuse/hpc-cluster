@@ -1,10 +1,26 @@
+- name: mount bind mount
+  mount:
+    path: /data
+    src: /export/data
+    opts: bind
+    state: mounted
+    fstype: none
+  tags: nfs
 
-- name: Install NFS server
+- name: add bind mount /etc/fstab entry
+  lineinfile:
+    path: /etc/fstab
+    state: present
+    line: '/export/data                               /data                  none   defaults,bind                   0  0'
+  tags: nfs
+
+- name: install nfs server
   zypper:
     name: nfs-kernel-server
     state: present
+  tags: nfs
 
-- name: Setup /etc/exports
+- name: setup /etc/exports
   template: 
     src: exports.j2
     dest: /etc/exports
@@ -12,17 +28,20 @@
     group: root
     mode: '0644'
   register: exportschanged
+  tags: nfs
 
-- name: Reload NFS config
+- name: reload nfs config
   service: 
     name: nfsserver
     enabled: yes
-    state: restart
+    state: restarted
   when: exportschanged.changed
+  tags: nfs
 
-- name: Start and Enable NFS
+- name: start and enable nfs
   service: 
     name: nfsserver
     enabled: yes
     state: started
+  tags: nfs
 
