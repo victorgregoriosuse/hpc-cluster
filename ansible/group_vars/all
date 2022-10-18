@@ -4,10 +4,22 @@ common_rpms:
   - vim
   - bind-utils
   - spack
-
-headnode_rpms:
   - man
 
 ntp_rpms:
   - chrony
   - chrony-pool-suse
+
+#
+# Slurm
+# https://www.suse.com/c/deploying-slurm-using-sle-hpc-patterns/
+
+slurm_mgr_rpms:
+  - slurm
+  - slurm-slurmdbd
+  - mariadb
+  - munge 
+
+slurm_node_rpms:
+  - slurm-node
+  - munge 

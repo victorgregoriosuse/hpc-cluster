@@ -1,0 +1,14 @@
+- name: install slurm node packages
+  zypper:
+    name: "{{ slurm_node_rpms }}"
+    state: present
+  tags: slurm
+
+- name: start and enable slurmd
+  service: 
+    name: slurmd
+    enabled: yes
+    state: started
+  tags: slurm
+
+

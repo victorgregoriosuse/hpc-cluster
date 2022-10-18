@@ -1,0 +1,44 @@
+- name: install slurm manager packages
+  zypper:
+    name: "{{ slurm_mgr_rpms }}"
+    state: present
+  tags: slurm
+
+- name: install custom innodb.cfg
+  template: 
+    src: innodb.cnf.j2
+    dest: /etc/my.cnf.d/innodb.cnf
+    owner: root
+    group: root
+    mode: '0644'
+  register: cnfchanged
+  tags: slurm
+
+- name: start and enable database
+  service: 
+    name: mariadb
+    enabled: yes
+    state: started
+  tags: slurm
+
+- name: restart database if cnf changed
+  service: 
+    name: mariadb
+    state: restarted
+  when: cnfchanged.changed
+  tags: slurm
+
+- name: start and enable slurmctld
+  service: 
+    name: slurmctld
+    enabled: yes
+    state: started
+  tags: slurm
+
+- name: start and enable slurmdbd
+  service: 
+    name: slurmdbd
+    enabled: yes
+    state: started
+  tags: slurm
+
