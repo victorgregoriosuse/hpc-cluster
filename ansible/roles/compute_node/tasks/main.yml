@@ -22,18 +22,6 @@
     append: yes
     shell: /bin/bash
     home: /data/geekohpc
-    create_home: true
-    generate_ssh_key: yes
-    ssh_key_bits: 2048
-    ssh_key_file: .ssh/id_rsa
+    create_home: false
   tags: users
 
-- name: set up authorized keys
-  copy:
-    src: /data/geekohpc/.ssh/id_rsa.pub
-    dest: /data/geekohpc/.ssh/authorized_keys
-    owner: geekohpc
-    group: geekohpc
-    mode: '0600'
-    backup: yes
-  tags: users
