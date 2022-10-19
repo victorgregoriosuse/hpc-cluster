@@ -28,6 +28,23 @@
   when: cnfchanged.changed
   tags: slurm
 
+- name: start and enable slurmdbd
+  service: 
+    name: slurmdbd
+    enabled: yes
+    state: started
+  tags: slurm
+
+- name: configure slurm.conf
+  template: 
+    src: slurm.conf.j2
+    dest: /etc/slurm/slurm.conf
+    owner: root
+    group: root
+    mode: '0644'
+  register: slurmchanged
+  tags: slurm
+
 - name: start and enable slurmctld
   service: 
     name: slurmctld
@@ -35,10 +52,11 @@
     state: started
   tags: slurm
 
-- name: start and enable slurmdbd
+- name: reload slurm config
   service: 
-    name: slurmdbd
+    name: slurmctld
     enabled: yes
-    state: started
+    state: restarted
+  when: slurmchanged.changed
   tags: slurm
 

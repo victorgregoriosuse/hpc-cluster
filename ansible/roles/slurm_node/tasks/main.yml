@@ -4,6 +4,16 @@
     state: present
   tags: slurm
 
+- name: configure slurm.conf
+  template: 
+    src: slurm.conf.j2
+    dest: /etc/slurm/slurm.conf
+    owner: root
+    group: root
+    mode: '0644'
+  register: slurmchanged
+  tags: slurm
+
 - name: start and enable slurmd
   service: 
     name: slurmd
@@ -11,4 +21,11 @@
     state: started
   tags: slurm
 
+- name: reload slurm config
+  service: 
+    name: slurmd
+    enabled: yes
+    state: restarted
+  when: slurmchanged.changed
+  tags: slurm
 
