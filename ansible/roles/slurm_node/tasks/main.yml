@@ -4,6 +4,15 @@
     state: present
   tags: slurm
 
+# /etc/munge/munge.key needs to be the same across the cluster
+# The munge key is currently not handled by ansible.
+- name: start and enable munge
+  service: 
+    name: munge
+    enabled: yes
+    state: started
+  tags: slurm
+
 - name: configure slurm.conf
   template: 
     src: slurm.conf.j2
@@ -12,7 +21,9 @@
     group: root
     mode: '0644'
   register: slurmchanged
-  tags: slurm
+  tags:
+    - slurm
+    - slurmconf
 
 - name: start and enable slurmd
   service: 
@@ -27,5 +38,7 @@
     enabled: yes
     state: restarted
   when: slurmchanged.changed
-  tags: slurm
+  tags:
+    - slurm
+    - slurmconf
 
