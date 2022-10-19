@@ -12,7 +12,8 @@
 #
 ClusterName=linux
 # Ordered List of Control Nodes
-SlurmctldHost=linux0(10.0.10.20)
+SlurmctldHost=amp-head01(172.16.250.164)
+#SlurmctldHost=linux0(10.0.10.20)
 #SlurmctldHost=linux1(10.0.10.21)
 #
 SlurmUser=slurm
@@ -93,7 +94,8 @@ JobCompType=jobcomp/none
 # When upgrading from a version without this fix
 # enable only after all daemons have been upgraded
 CommunicationParameters=block_null_hash
-# SUSE default configuration
+# SUSE custom configuration
 PropagateResourceLimitsExcept=MEMLOCK
-NodeName=linux State=UNKNOWN
-PartitionName=normal Nodes=linux Default=YES MaxTime=24:00:00 State=UP
+# from slurmd -C on amp-node01
+NodeName=amp-node01 CPUs=32 Boards=1 SocketsPerBoard=1 CoresPerSocket=32 ThreadsPerCore=1 RealMemory=63874 State=UNKNOWN
+PartitionName=normal Nodes=amp-node01 Default=YES MaxTime=24:00:00 State=UP
