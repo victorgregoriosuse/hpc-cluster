@@ -7,7 +7,7 @@
 - name: mount nfs storage
   mount:
     path: /data
-    src: 172.16.250.164:/export/data
+    src: 172.16.250.164:/data
     opts: defaults,vers=3,proto=tcp,nofail
     state: mounted
     fstype: nfs

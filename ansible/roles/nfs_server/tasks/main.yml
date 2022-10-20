@@ -1,12 +1,3 @@
-- name: mount bind mount
-  mount:
-    path: /data
-    src: /export/data
-    opts: bind
-    state: mounted
-    fstype: none
-  tags: nfs
-
 - name: install nfs server
   zypper:
     name: nfs-kernel-server
