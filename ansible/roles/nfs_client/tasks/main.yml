@@ -4,10 +4,12 @@
     state: present
   tags: nfs
 
-- name: add nfs /etc/fstab entry
-  lineinfile:
-    path: /etc/fstab
-    state: present
-    line: '172.16.250.164:/data                       /data      nfs   defaults,vers=3,proto=tcp,nofail 0 0'
+- name: mount nfs storage
+  mount:
+    path: /data
+    src: 172.16.250.164:/export/data
+    opts: defaults,vers=3,proto=tcp,nofail
+    state: mounted
+    fstype: nfs
   tags: nfs
 

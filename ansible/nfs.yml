@@ -1,0 +1,16 @@
+# Disabling as nfs bind bound is not idempotent in ansible-2.9.27.
+# This affects the nfs_server role. Details:
+# https://github.com/ansible/ansible/issues/29870
+
+#- name: deploy nfs server
+#  hosts:
+#    - headnode
+#  roles:
+#    - nfs_server
+#
+#- name: deploy nfs client
+#  hosts:
+#    - computenodes
+#  roles:
+#    - nfs_client
+

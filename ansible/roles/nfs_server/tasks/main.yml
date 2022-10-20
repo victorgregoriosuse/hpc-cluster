@@ -7,13 +7,6 @@
     fstype: none
   tags: nfs
 
-- name: add bind mount /etc/fstab entry
-  lineinfile:
-    path: /etc/fstab
-    state: present
-    line: '/export/data                               /data                  none   defaults,bind                   0  0'
-  tags: nfs
-
 - name: install nfs server
   zypper:
     name: nfs-kernel-server
