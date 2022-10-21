@@ -1,0 +1,22 @@
+#!/bin/bash
+#SBATCH -J testing
+#SBATCH -p normal
+#SBATCH --time=3:00:00
+#SBATCH -N 1
+#SBATCH -n 20
+
+# see: https://github.com/spack/spack/issues/26733
+# regarding '-bash: ==: command not found' error
+source /usr/share/spack/setup-env.sh
+spack load openfoam
+
+# see: https://openfoamwiki.net/index.php/FAQ/Installation_and_Running
+
+FOAM_RUN=$HOME/openfoam/slurm-$SLURM_JOB_ID/
+mkdir -p $FOAM_RUN
+cp -r $FOAM_TUTORIALS $FOAM_RUN
+cd $FOAM_RUN/tutorials
+
+./Allrun
+
+exit $?

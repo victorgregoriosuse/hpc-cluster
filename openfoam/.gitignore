@@ -1,0 +1,3 @@
+OpenFOAM
+*.out
+slurm-[0-9]*
