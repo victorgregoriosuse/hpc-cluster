@@ -1,0 +1,17 @@
+- name: add slurm group
+  group:
+    name: slurm
+    state: present
+    gid: 445
+  tags: slurm
+
+- name: add slurm user
+  user:
+    name: slurm
+    comment: SLURM workload manager
+    uid: 445
+    group: 445
+    shell: /bin/false
+    home: /etc/slurm
+    create_home: false
+  tags: slurm
