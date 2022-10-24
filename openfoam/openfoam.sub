@@ -1,9 +1,9 @@
 #!/bin/bash
 #SBATCH -J testing
 #SBATCH -p normal
-#SBATCH --time=3:00:00
+#SBATCH --time=24:00:00
 #SBATCH -N 1
-#SBATCH -n 20
+#SBATCH -n 32
 
 # see: https://github.com/spack/spack/issues/26733
 # regarding '-bash: ==: command not found' error
