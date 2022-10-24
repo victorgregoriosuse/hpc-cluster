@@ -1,3 +1,4 @@
+---
 - name: set timezone to UTC
   timezone:
     name: UTC

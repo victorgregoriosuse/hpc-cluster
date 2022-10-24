@@ -1,3 +1,4 @@
+---
 - name: deploy nfs server
   hosts:
     - headnode
@@ -9,4 +10,3 @@
     - computenodes
   roles:
     - nfs_client
-

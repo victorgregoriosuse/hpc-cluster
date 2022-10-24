@@ -1,5 +1,5 @@
+---
 - name: install common cluster packages
   zypper:
     name: "{{ common_rpms }}"
     state: present
-

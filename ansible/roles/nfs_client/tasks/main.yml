@@ -1,3 +1,4 @@
+---
 - name: install nfs client
   zypper:
     name: nfs-client
@@ -12,4 +13,3 @@
     state: mounted
     fstype: nfs
   tags: nfs
-

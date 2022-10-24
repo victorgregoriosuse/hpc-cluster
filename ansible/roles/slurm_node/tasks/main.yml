@@ -1,3 +1,4 @@
+---
 - name: install slurm node packages
   zypper:
     name: "{{ slurm_node_rpms }}"
@@ -41,4 +42,3 @@
   tags:
     - slurm
     - slurmconf
-

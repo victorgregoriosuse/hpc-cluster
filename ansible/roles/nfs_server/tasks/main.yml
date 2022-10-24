@@ -1,3 +1,4 @@
+---
 - name: install nfs server
   zypper:
     name: nfs-kernel-server
@@ -28,4 +29,3 @@
     enabled: yes
     state: started
   tags: nfs
-

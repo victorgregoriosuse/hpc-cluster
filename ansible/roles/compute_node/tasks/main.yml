@@ -1,3 +1,4 @@
+---
 - name: ensure hpcusers group exists
   group:
     name: hpcusers
@@ -24,4 +25,3 @@
     home: /data/geekohpc
     create_home: false
   tags: users
-

@@ -1,3 +1,4 @@
+---
 - name: install slurm manager packages
   zypper:
     name: "{{ slurm_mgr_rpms }}"
@@ -72,4 +73,3 @@
   tags:
     - slurm
     - slurmconf
-
