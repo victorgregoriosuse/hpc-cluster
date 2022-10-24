@@ -1,17 +1,17 @@
 # Ansible Roles in deploy.yml
 
-* All Nodes
-** sle_node: Installs cluster wide packages
-** ntp_client: Installs and configures NTP client
-** slurm_user: Adds slurm service account user and group
+## All Nodes
+* sle_node: Installs cluster wide packages
+* ntp_client: Installs and configures NTP client
+* slurm_user: Adds slurm service account user and group
 
-* Head Node
-** head_node: Adds HPC cluster user on shared storage and generates SSH key pair
-** slurm_mgr: Installs Slurm Manager and SlurmDBD, dependent on slurm_user
+## Head Node
+* head_node: Adds HPC cluster user on shared storage and generates SSH key pair
+* slurm_mgr: Installs Slurm Manager and SlurmDBD, dependent on slurm_user
 
-* Compute Nodes
-** compute_node: Adds HPC cluster user on compute node
-** slurm_client: Installs SlurmD, dependent on slurm_user
+## Compute Nodes
+* compute_node: Adds HPC cluster user on compute node
+* slurm_client: Installs SlurmD, dependent on slurm_user
 
 # Ansible Roles in nfs.yml
 
