@@ -1,3 +1,9 @@
+# Running Ansible
+```
+sudo ansible-playbook -i hosts nfs.yml --check
+sudo ansible-playbook -i hosts deploy.yml --check
+```
+
 # Ansible Roles in deploy.yml
 
 ## All Nodes
