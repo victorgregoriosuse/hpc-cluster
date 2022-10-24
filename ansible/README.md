@@ -1,3 +1,10 @@
+# WARNINGS
+
+* Ansible does not handle the creation of /data, the NFS share
+* Ansible does not manage /etc/slurm/slurmdbd.conf
+* Ansible does not handle the requisite MariaDB configuration
+* See: https://documentation.suse.com/sle-hpc/15-SP4/single-html/hpc-guide/#sec-scheduler-slurm
+
 # Running Ansible
 ```
 sudo ansible-playbook -i hosts nfs.yml --check
