@@ -1,7 +1,7 @@
 ---
 - name: install nfs server
   zypper:
-    name: nfs-kernel-server
+    name: "{{ nfs_server_rpms }}"
     state: present
   tags: nfs
 

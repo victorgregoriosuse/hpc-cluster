@@ -1,7 +1,7 @@
 ---
 - name: install nfs client
   zypper:
-    name: nfs-client
+    name: "{{ nfs_client_rpms }}"
     state: present
   tags: nfs
 

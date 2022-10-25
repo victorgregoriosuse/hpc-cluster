@@ -10,7 +10,12 @@ ntp_rpms:
   - chrony
   - chrony-pool-suse
 
-#
+nfs_client_rpms:
+  - nfs-client
+
+nfs_server_rpms:
+  - nfs-kernel-server
+
 # Slurm
 # https://www.suse.com/c/deploying-slurm-using-sle-hpc-patterns/
 
