@@ -5,6 +5,7 @@ common_rpms:
   - bind-utils
   - spack
   - man
+  - libopenssl-devel
 
 ntp_rpms:
   - chrony
