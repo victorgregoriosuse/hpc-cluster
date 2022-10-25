@@ -10,6 +10,9 @@
 source /usr/share/spack/setup-env.sh
 spack load openfoam
 
+
+# FOAM_RUN is local to this script, $FOAM_TUTORIALS
+# is set when openfoam is loaded through spack
 # see: https://openfoamwiki.net/index.php/FAQ/Installation_and_Running
 
 FOAM_RUN=$HOME/openfoam/slurm-$SLURM_JOB_ID/
