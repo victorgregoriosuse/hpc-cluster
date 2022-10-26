@@ -6,6 +6,7 @@ common_rpms:
   - spack
   - man
   - libopenssl-devel
+  - makeinfo
 
 ntp_rpms:
   - chrony
